@@ -7,10 +7,14 @@ Additionally, passing JSON is actually quite CPU intensive due to its human read
 
 - Payload in protocol buffers: faster, more efficiency
 - Good for mobile or micro-controller which have a weaker spec
+- Payload in protocol buffers is more restricting because the schema is fixed and we have types, cannot dynamically add parameters unlike JSON.
+- gRPC uses HTTP/2
+- gRPC also supports streaming unlike REST that only supports unary
+- gRPC is a free design unlike REST (GET/POST/UPDATE/DELETE)
 
 ### Types API in gRPC
 
-- Unary: one client's request per one server's response (for traditional way)
+- Unary: one client's request per one server's response (for traditional way, like REST)
 - Server Streaming: one client's request, multiple server's responses (for real time data from server like tax price streaming)
 - Client Streaming: multiple client's requests, one server's response (for client uploading or updating data)
 - Bi-directional Streaming: multiple client's requests, multiple server's responses (after the first request, the responses could arrive in any order)
