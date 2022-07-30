@@ -15,10 +15,16 @@ Additionally, passing JSON is actually quite CPU intensive due to its human read
 
 ### Types API in gRPC
 
-- Unary: one client's request per one server's response (for traditional way, like REST)
-- Server Streaming: one client's request, multiple server's responses (for real time data from server like tax price streaming)
-- Client Streaming: multiple client's requests, one server's response (for client uploading or updating data)
-- Bi-directional Streaming: multiple client's requests, multiple server's responses (after the first request, the responses could arrive in any order)
+- `Unary`: one client's request per one server's response (for traditional way, like REST)
+- `Server Streaming`: one client's request, multiple server's responses (for real time data from server like tax price streaming)
+- `Client Streaming`: multiple client's requests, one server's response (for client uploading or updating data)
+- `Bi-directional Streaming`: multiple client's requests, multiple server's responses (after the first request, the responses could arrive in any order)
+
+### The Reasons using Protocol Buffers in gRPC
+
+- Code Generation
+- Language Interoperability
+- Service & Message Definition
 
 ### Reference
 
