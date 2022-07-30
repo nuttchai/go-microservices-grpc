@@ -12,6 +12,8 @@ Additionally, passing JSON is actually quite CPU intensive due to its human read
 - gRPC also supports `streaming` unlike REST that only supports unary
 - gRPC is a `free design` unlike REST (GET/POST/UPDATE/DELETE)
 - gRPC is `more secure` because it is done by serializing the data into binary making TLS connection easy and giving an access to interceptors for authentication
+- gRPC is API oriented while REST is resource oriented
+- gRPC can generate code out of the box while REST needs OpenAPI/Swagger
 
 ### Types API in gRPC
 
