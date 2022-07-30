@@ -11,4 +11,6 @@ Additionally, passing JSON is actually quite CPU intensive due to its human read
 
 ### Reference
 
-[gRPC website](https://grpc.io/)
+- [gRPC website](https://grpc.io/)
+- [HTTP/2](https://http2.github.io/)
+- [HTTP/2 vs HTTP/1](https://imagekit.io/demo/http2-vs-http1)
