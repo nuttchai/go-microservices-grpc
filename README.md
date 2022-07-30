@@ -26,6 +26,12 @@ Additionally, passing JSON is actually quite CPU intensive due to its human read
 - Language Interoperability
 - Service & Message Definition
 
+### HTTP/2 has better performance than HTTP/1.1 because
+
+- TCP connection are re-used
+- Header are compressed
+- Binary payload by default
+
 ### Reference
 
 - [gRPC website](https://grpc.io/)
