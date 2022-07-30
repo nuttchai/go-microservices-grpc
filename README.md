@@ -5,9 +5,15 @@
 Payload in protocol buffers is much SMALLER compared to JSON. We can save a lot of bandwidth or storage space.
 Additionally, passing JSON is actually quite CPU intensive due to its human readable format compared to passing in protocol buffers which is a binary.
 
-=> Payload in protocol buffers: faster, more efficiency
+- Payload in protocol buffers: faster, more efficiency
+- Good for mobile or micro-controller which have a weaker spec
 
-=> Good for mobile or micro-controller which have a weaker spec
+### Types API in gRPC
+
+- Unary: one client's request per one server's response (for traditional way)
+- Server Streaming: one client's request, multiple server's responses (for real time data from server like tax price streaming)
+- Client Streaming: multiple client's requests, one server's response (for client uploading or updating data)
+- Bi-directional Streaming: multiple client's requests, multiple server's responses (after the first request, the responses could arrive in any order)
 
 ### Reference
 
