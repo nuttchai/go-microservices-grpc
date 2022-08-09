@@ -34,6 +34,11 @@ Additionally, passing JSON is actually quite CPU intensive due to its human read
 - Header are compressed
 - Binary payload by default
 
+### To run greet folder
+
+- run the command `make greet`
+- then bin folder will be generated which we can run `./bin/greet/server` to start the server
+
 ### Reference
 
 - [gRPC website](https://grpc.io/)
