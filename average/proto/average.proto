@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package average;
+
+option go_package = "github.com/nuttchai/go-microservices-grpc/average/proto";
+
+message AverageRequest {
+    int64 number = 1;
+}
+
+message AverageResponse {
+    double result = 1;
+}
+
+service AverageService {
+    rpc Average (stream AverageRequest) returns (AverageResponse);
+}
