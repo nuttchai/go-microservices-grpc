@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package primes;
+
+option go_package = "github.com/nuttchai/go-microservices-grpc/primes/proto";
+
+message PrimesRequest {
+    int64 number = 1;
+}
+
+message PrimesResponse {
+    int64 result = 1;
+}
+
+service PrimesService {
+    rpc Primes (PrimesRequest) returns (stream PrimesResponse);
+}
