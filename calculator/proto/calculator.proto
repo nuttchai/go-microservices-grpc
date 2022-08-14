@@ -4,7 +4,7 @@ package calculator;
 
 option go_package = "github.com/nuttchai/go-microservices-grpc/calculator/proto";
 
-message CalculatorReqeuest {
+message CalculatorRequest {
     int64 first_integer = 1;
     int64 second_integer = 2;
 }
@@ -14,5 +14,5 @@ message CalculatorResponse {
 }
 
 service CalculatorService {
-    rpc Calculator (CalculatorReqeuest) returns (CalculatorResponse);
+    rpc Calculator (CalculatorRequest) returns (CalculatorResponse);
 }

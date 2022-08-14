@@ -22,7 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CalculatorServiceClient interface {
-	Calculator(ctx context.Context, in *CalculatorReqeuest, opts ...grpc.CallOption) (*CalculatorResponse, error)
+	Calculator(ctx context.Context, in *CalculatorRequest, opts ...grpc.CallOption) (*CalculatorResponse, error)
 }
 
 type calculatorServiceClient struct {
@@ -33,7 +33,7 @@ func NewCalculatorServiceClient(cc grpc.ClientConnInterface) CalculatorServiceCl
 	return &calculatorServiceClient{cc}
 }
 
-func (c *calculatorServiceClient) Calculator(ctx context.Context, in *CalculatorReqeuest, opts ...grpc.CallOption) (*CalculatorResponse, error) {
+func (c *calculatorServiceClient) Calculator(ctx context.Context, in *CalculatorRequest, opts ...grpc.CallOption) (*CalculatorResponse, error) {
 	out := new(CalculatorResponse)
 	err := c.cc.Invoke(ctx, "/calculator.CalculatorService/Calculator", in, out, opts...)
 	if err != nil {
@@ -46,7 +46,7 @@ func (c *calculatorServiceClient) Calculator(ctx context.Context, in *Calculator
 // All implementations must embed UnimplementedCalculatorServiceServer
 // for forward compatibility
 type CalculatorServiceServer interface {
-	Calculator(context.Context, *CalculatorReqeuest) (*CalculatorResponse, error)
+	Calculator(context.Context, *CalculatorRequest) (*CalculatorResponse, error)
 	mustEmbedUnimplementedCalculatorServiceServer()
 }
 
@@ -54,7 +54,7 @@ type CalculatorServiceServer interface {
 type UnimplementedCalculatorServiceServer struct {
 }
 
-func (UnimplementedCalculatorServiceServer) Calculator(context.Context, *CalculatorReqeuest) (*CalculatorResponse, error) {
+func (UnimplementedCalculatorServiceServer) Calculator(context.Context, *CalculatorRequest) (*CalculatorResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Calculator not implemented")
 }
 func (UnimplementedCalculatorServiceServer) mustEmbedUnimplementedCalculatorServiceServer() {}
@@ -71,7 +71,7 @@ func RegisterCalculatorServiceServer(s grpc.ServiceRegistrar, srv CalculatorServ
 }
 
 func _CalculatorService_Calculator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CalculatorReqeuest)
+	in := new(CalculatorRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -83,7 +83,7 @@ func _CalculatorService_Calculator_Handler(srv interface{}, ctx context.Context,
 		FullMethod: "/calculator.CalculatorService/Calculator",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CalculatorServiceServer).Calculator(ctx, req.(*CalculatorReqeuest))
+		return srv.(CalculatorServiceServer).Calculator(ctx, req.(*CalculatorRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
