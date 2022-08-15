@@ -37,8 +37,8 @@ else
 endif
 
 .DEFAULT_GOAL := help
-.PHONY: greet blog calculator primes average help
-project := greet calculator blog primes average
+.PHONY: greet blog calculator primes average max help
+project := greet calculator blog primes average max
 
 all: $(project) ## Generate Pbs and build
 
@@ -47,6 +47,7 @@ calculator: $@ ## Generate Pbs and build for calculator
 blog: $@ ## Generate Pbs and build for blog
 primes: $@ ## Generate Pbs and build for primes
 average: $@ ## Generate Pbs and build for average
+max: $@ ## Generate Pbs and build for max
 
 $(project):
 	@${CHECK_DIR_CMD}
@@ -57,7 +58,7 @@ $(project):
 test: all ## Launch tests
 	go test ./...
 
-clean: clean_greet clean_calculator clean_blog clean_primes clean_average ## Clean generated files
+clean: clean_greet clean_calculator clean_blog clean_primes clean_average clean_max ## Clean generated files
 	${RM_F_CMD} ssl/*.crt
 	${RM_F_CMD} ssl/*.csr
 	${RM_F_CMD} ssl/*.key
@@ -78,6 +79,9 @@ clean_primes: ## Clean generated files for primes
 
 clean_average: ## Clean generated files for average
 	${RM_F_CMD} average/${PROTO_DIR}/*.pb.go
+	
+clean_max: ## Clean generated files for max
+	${RM_F_CMD} max/${PROTO_DIR}/*.pb.go
 	
 rebuild: clean all ## Rebuild the whole project
 
