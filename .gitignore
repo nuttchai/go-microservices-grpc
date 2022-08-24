@@ -1,2 +1,8 @@
 .vscode
 bin
+
+# Ignore all secrets and certs
+*.crt
+*.csr
+*.key
+*.pem
