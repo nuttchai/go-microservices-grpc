@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package = "github.com/nuttchai/go-microservices-grpc/calculator/proto";
+
+message SumRequest {
+    int64 integer_1 = 1;
+    int64 integer_2 = 2;
+}
+
+message SumResponse {
+    int64 summation = 1;
+}

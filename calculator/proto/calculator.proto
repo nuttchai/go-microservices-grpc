@@ -4,38 +4,10 @@ package calculator;
 
 option go_package = "github.com/nuttchai/go-microservices-grpc/calculator/proto";
 
-message SumRequest {
-    int64 integer_1 = 1;
-    int64 integer_2 = 2;
-}
-
-message SumResponse {
-    int64 summation = 1;
-}
-
-message AverageRequest {
-    int64 integer = 1;
-}
-
-message AverageResponse {
-    double average = 1;
-}
-
-message PrimesRequest {
-    int64 integer = 1;
-}
-
-message PrimesResponse {
-    int64 result = 1;
-}
-
-message MaxRequest {
-    int64 integer = 1;
-}
-
-message MaxResponse {
-    int64 max_integer = 1;
-}
+import "sum.proto";
+import "primes.proto";
+import "avg.proto";
+import "max.proto";
 
 service CalculatorService {
     rpc Sum (SumRequest) returns (SumResponse);
