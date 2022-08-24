@@ -6,6 +6,7 @@ import (
 
 	pb "github.com/nuttchai/go-microservices-grpc/calculator/proto"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 )
 
 type Server struct {
@@ -25,6 +26,7 @@ func main() {
 
 	srv := grpc.NewServer()
 	pb.RegisterCalculatorServiceServer(srv, &Server{})
+	reflection.Register(srv) // make the server able to be reflected (to inspect the service inside)
 
 	if err = srv.Serve(lis); err != nil {
 		log.Fatalf("Failed to serve: %v\n", err)
