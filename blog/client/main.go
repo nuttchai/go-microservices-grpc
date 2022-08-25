@@ -26,4 +26,5 @@ func main() {
 	// readBlog(client, "nonExistingId") // non valid Id
 	updateBlog(client, id)
 	listBlog(client)
+	deleteBlog(client, id)
 }
